@@ -1,0 +1,8 @@
+{
+  "name": "covid19DeDashboard",
+  "version": "1.0.0",
+  "description": "A dashboard for COVID-19 cases in Germany",
+  "main": "index.js",
+  "author": "Michael Große <mic.grosse@googlemail.com>",
+  "license": "MIT"
+}
