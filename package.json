@@ -1,8 +1,26 @@
 {
-  "name": "covid19DeDashboard",
+  "name": "covid-19-de-dashboard",
   "version": "1.0.0",
   "description": "A dashboard for COVID-19 cases in Germany",
   "main": "index.js",
   "author": "Michael Große <mic.grosse@googlemail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export"
+  },
+  "dependencies": {
+    "COVID-19-DE": "micgro42/COVID-19-DE",
+    "csv-loader": "^3.0.2",
+    "next": "^9.3.0",
+    "papaparse": "^5.1.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "recharts": "^1.8.5"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
 }
