@@ -1,3 +1,5 @@
+const isProduction = process.env.NODE_ENV === 'production';
+
 module.exports = {
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.module.rules.push({
@@ -17,5 +19,5 @@ module.exports = {
       '/': { page: '/' }
     };
   },
-  assetPrefix: '/COVID-19-DE-Dashboard/'
+  assetPrefix: isProduction ? '/COVID-19-DE-Dashboard/' : '',
 };
