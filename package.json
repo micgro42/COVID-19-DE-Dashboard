@@ -9,7 +9,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "test": "jest"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.2.5",
@@ -22,12 +23,15 @@
     "recharts": "^1.8.5"
   },
   "devDependencies": {
+    "@types/jest": "^25.1.4",
     "@types/node": "^13.9.1",
     "@types/react": "^16.9.23",
     "@types/react-redux": "^7.1.7",
+    "jest": "^25.1.0",
     "prettier": "^1.19.1",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
+    "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"
   }
 }
