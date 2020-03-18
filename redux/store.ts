@@ -3,11 +3,11 @@ import confirmedData from "COVID-19-DE/time_series/time-series_19-covid-Confirme
 // @ts-ignore
 import deathsData from "COVID-19-DE/time_series/time-series_19-covid-Deaths.csv";
 // @ts-ignore
-import metaStateData from "COVID-19-DE/meta/stateMetaData.csv";
+import stateMetaData from "COVID-19-DE/meta/stateMetaData.csv";
 import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./reducers/rootReducer";
 import {
-  extractCasesFromTimeline,
+  extractCasesFromTimeline, extractListOfStatesFromMetaData,
   extractStatePopulationFromMetaData
 } from "./extractors/extractCases";
 
@@ -21,29 +21,42 @@ export interface StatePopulationData {
   [stateName: string]: number;
 }
 
-interface ApplicationState {
-  availableStates: {
-    [stateName: string]: {
-      color: string;
-    };
+interface availableStatesUIData {
+  [stateName: string]: {
+    color: string;
   };
-  selectedStates: [];
+}
+
+interface ApplicationState {
+  availableStates: availableStatesUIData;
+  selectedStates: string[];
   statePopulation: StatePopulationData;
   confirmed: CaseRecordsByState;
   deaths: CaseRecordsByState;
 }
 
-// FIXME: add remaining members to preloaded state
-// @ts-ignore
+const stateNames = extractListOfStatesFromMetaData(stateMetaData);
+
+// Todo: wrap this in a function and write tests for it
+const availableStates: availableStatesUIData = {};
+for (let state in stateNames) {
+  const hue = 360 / stateNames.length * Object.keys(availableStates).length;
+  availableStates[state] = {
+    color: `hsl(${hue}, 100%, 50%)`,
+  };
+}
+
 const preloadedState: ApplicationState = {
-  statePopulation: extractStatePopulationFromMetaData(metaStateData),
+  availableStates,
+  selectedStates: [ ...stateNames ],
+  statePopulation: extractStatePopulationFromMetaData(stateMetaData),
   confirmed: extractCasesFromTimeline(confirmedData),
   deaths: extractCasesFromTimeline(deathsData)
 };
 
 const store = configureStore({
-  reducer: rootReducer
-  // preloadedState
+  reducer: rootReducer,
+  preloadedState
 });
 
 export default store;

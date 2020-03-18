@@ -1,5 +1,5 @@
 import {
-  extractCasesFromTimeline, extractStatePopulationFromMetaData, MetaDataRecord,
+  extractCasesFromTimeline, extractListOfStatesFromMetaData, extractStatePopulationFromMetaData, MetaDataRecord,
   TimelineDataRecord
 } from "../../../../redux/extractors/extractCases";
 import { CaseRecordsByState } from "../../../../redux/store";
@@ -49,6 +49,24 @@ describe("extractors", () => {
         Bayen: 13076721,
         Berlin: 3644826,
       };
+
+      expect(actualExtractedData).toStrictEqual(expectedData);
+    });
+  });
+
+  describe('extractListOfStatesFromMetaData', () => {
+    it('returns a plain list of the all states from state meta data', () => {
+      const testData: MetaDataRecord[] = [
+        { State: 'Bayen', Population: 13076721 },
+        { State: 'Berlin', Population: 3644826 },
+      ];
+
+      const actualExtractedData = extractListOfStatesFromMetaData(testData);
+
+      const expectedData = [
+        'Bayen',
+        'Berlin',
+      ];
 
       expect(actualExtractedData).toStrictEqual(expectedData);
     });

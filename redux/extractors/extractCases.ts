@@ -44,3 +44,8 @@ export const extractStatePopulationFromMetaData = (
 
   return statePopulationData;
 };
+
+export const extractListOfStatesFromMetaData = ( metaData: MetaDataRecord[]
+): string[] => {
+  return metaData.map(stateMetaData => stateMetaData.State);
+};
