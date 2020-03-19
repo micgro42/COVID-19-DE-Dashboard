@@ -1,10 +1,23 @@
-import { CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  Line,
+  LineChart,
+  Tooltip,
+  XAxis,
+  YAxis
+} from "recharts";
 import React from "react";
-import {ApplicationState} from "../redux/store";
+import {
+  availableStatesUIData,
+  CaseRecordsByState
+} from "../redux/store";
 
-const ConfirmedCasesLinear = (props: any) => {
+const ConfirmedCasesLinear = (props: {
+  confirmedData: CaseRecordsByState;
+  availableStates: availableStatesUIData;
+  selectedStates: string[];
+}) => {
   const massagedData: any = {};
-  const stateNames = Object.keys(props.confirmedData);
+  const stateNames = Object.keys(props.availableStates);
   const dates = Object.keys(props.confirmedData[stateNames[0]]);
 
   dates.forEach(date => {
@@ -13,12 +26,11 @@ const ConfirmedCasesLinear = (props: any) => {
     };
   });
 
-  for (let stateName in props.confirmedData) {
-    stateNames.push(stateName);
+  props.selectedStates.forEach( stateName => {
     dates.forEach(date => {
       massagedData[date][stateName] = props.confirmedData[stateName][date];
     });
-  }
+  });
 
   return (
     <div>
@@ -31,12 +43,18 @@ const ConfirmedCasesLinear = (props: any) => {
       >
         <XAxis dataKey="name" />
         <YAxis />
-        <Tooltip />
-        <CartesianGrid stroke="#f5f5f5" />
-        ${props.selectedStates.map( (stateName: string) => {
-            const color = props.availableStates[stateName].color;
-            return (<Line key={stateName} type="monotone" dataKey={stateName} stroke={color} />);
-          })}
+        <Tooltip />$
+        {props.selectedStates.map((stateName: string) => {
+          const color = props.availableStates[stateName].color;
+          return (
+            <Line
+              key={stateName}
+              type="monotone"
+              dataKey={stateName}
+              stroke={color}
+            />
+          );
+        })}
       </LineChart>
     </div>
   );
