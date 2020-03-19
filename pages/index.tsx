@@ -1,7 +1,11 @@
-import Dashboard from "../components/Dashboard";
 import {ApplicationState} from "../redux/store";
 import {connect} from "react-redux";
 import {changeSelectedStates} from "../redux/actions/actions";
+
+import dynamic from 'next/dynamic'
+const Dashboard = dynamic(() => import('../components/Dashboard'), {
+    ssr: false
+});
 
 const mapStateToProps = ( state: ApplicationState ) => {
     return {

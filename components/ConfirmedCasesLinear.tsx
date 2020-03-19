@@ -25,7 +25,7 @@ const ConfirmedCasesLinear = (props: any) => {
       <p>Confirmed Cases</p>
       <LineChart
         height={400}
-        width={1200}
+        width={600}
         data={Object.values(massagedData)}
         margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
       >
