@@ -43,7 +43,7 @@ const ConfirmedCasesLinear = (props: {
       >
         <XAxis dataKey="name" />
         <YAxis />
-        <Tooltip />$
+        <Tooltip />
         {props.selectedStates.map((stateName: string) => {
           const color = props.availableStates[stateName].color;
           return (
