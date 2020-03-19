@@ -1,6 +1,7 @@
 import Dashboard from "../components/Dashboard";
 import {ApplicationState} from "../redux/store";
 import {connect} from "react-redux";
+import {changeSelectedStates} from "../redux/actions/actions";
 
 const mapStateToProps = ( state: ApplicationState ) => {
     return {
@@ -9,8 +10,10 @@ const mapStateToProps = ( state: ApplicationState ) => {
     }
 };
 
-const mapDispatchToProps = () => {
-    return {}
+const mapDispatchToProps = ( dispatch: any ) => {
+    return {
+        changeSelectedStates: (stateName: string, added: boolean) => dispatch(changeSelectedStates(stateName, added)),
+    }
 };
 
 const Index = connect(mapStateToProps, mapDispatchToProps)(Dashboard)
