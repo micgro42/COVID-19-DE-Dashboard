@@ -1,9 +1,12 @@
-import {combineReducers} from 'redux';
-import {CaseRecordsByState} from "../store";
+import { combineReducers } from "redux";
+import {availableStatesUIData, CaseRecordsByState, StatePopulationData} from "../store";
 
 const rootReducer = combineReducers({
-  confirmed: ( previousState: CaseRecordsByState = {} ) => previousState,
-  deaths: ( previousState: CaseRecordsByState = {} ) => previousState,
+  availableStates: (previousState: availableStatesUIData = {}) => previousState,
+  selectedStates: (previousState: string[] = []) => previousState,
+  statePopulation: (previousState: StatePopulationData = {}) => previousState,
+  confirmed: (previousState: CaseRecordsByState = {}) => previousState,
+  deaths: (previousState: CaseRecordsByState = {}) => previousState
 });
 
 export default rootReducer;

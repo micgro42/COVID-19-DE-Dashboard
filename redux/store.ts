@@ -21,13 +21,13 @@ export interface StatePopulationData {
   [stateName: string]: number;
 }
 
-interface availableStatesUIData {
+export interface availableStatesUIData {
   [stateName: string]: {
     color: string;
   };
 }
 
-interface ApplicationState {
+export interface ApplicationState {
   availableStates: availableStatesUIData;
   selectedStates: string[];
   statePopulation: StatePopulationData;
@@ -39,7 +39,7 @@ const stateNames = extractListOfStatesFromMetaData(stateMetaData);
 
 // Todo: wrap this in a function and write tests for it
 const availableStates: availableStatesUIData = {};
-for (let state in stateNames) {
+for (let state of stateNames) {
   const hue = 360 / stateNames.length * Object.keys(availableStates).length;
   availableStates[state] = {
     color: `hsl(${hue}, 100%, 50%)`,
