@@ -1,4 +1,4 @@
-import { CaseRecordsByState, StatePopulationData } from "../store";
+import { CaseRecordsByState, StatePopulationData } from '../store';
 
 export interface TimelineDataRecord {
   State: string;
@@ -6,7 +6,7 @@ export interface TimelineDataRecord {
 }
 
 export const extractCasesFromTimeline = (
-  timelineData: TimelineDataRecord[]
+  timelineData: TimelineDataRecord[],
 ): CaseRecordsByState => {
   // ToDo: add checks that data has actually the right format
   const records: CaseRecordsByState = {};
@@ -17,7 +17,7 @@ export const extractCasesFromTimeline = (
       records[stateName] = {};
     }
     for (let key in stateData) {
-      if (key === "State") {
+      if (key === 'State') {
         continue;
       }
       records[stateName][key] = stateData[key] as number;
@@ -33,7 +33,7 @@ export interface MetaDataRecord {
 }
 
 export const extractStatePopulationFromMetaData = (
-  metaData: MetaDataRecord[]
+  metaData: MetaDataRecord[],
 ): StatePopulationData => {
   // ToDo: add checks that data has actually the right format
   const statePopulationData: StatePopulationData = {};
@@ -45,7 +45,8 @@ export const extractStatePopulationFromMetaData = (
   return statePopulationData;
 };
 
-export const extractListOfStatesFromMetaData = ( metaData: MetaDataRecord[]
+export const extractListOfStatesFromMetaData = (
+  metaData: MetaDataRecord[],
 ): string[] => {
   return metaData.map(stateMetaData => stateMetaData.State);
 };

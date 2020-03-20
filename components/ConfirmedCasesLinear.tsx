@@ -1,15 +1,6 @@
-import {
-  Line,
-  LineChart,
-  Tooltip,
-  XAxis,
-  YAxis
-} from "recharts";
-import React from "react";
-import {
-  availableStatesUIData,
-  CaseRecordsByState
-} from "../redux/store";
+import { Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
+import React from 'react';
+import { availableStatesUIData, CaseRecordsByState } from '../redux/store';
 
 const ConfirmedCasesLinear = (props: {
   confirmedData: CaseRecordsByState;
@@ -22,11 +13,11 @@ const ConfirmedCasesLinear = (props: {
 
   dates.forEach(date => {
     massagedData[date] = {
-      name: date
+      name: date,
     };
   });
 
-  props.selectedStates.forEach( stateName => {
+  props.selectedStates.forEach(stateName => {
     dates.forEach(date => {
       massagedData[date][stateName] = props.confirmedData[stateName][date];
     });
