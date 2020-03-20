@@ -1,5 +1,5 @@
 import {
-  availableStatesUIData,
+  AvailableStatesUIData,
   CaseRecordsByState,
   StatePopulationData,
 } from '../redux/store';
@@ -8,7 +8,7 @@ import React from 'react';
 
 const ConfirmedCasesPerPop = (props: {
   confirmedData: CaseRecordsByState;
-  availableStates: availableStatesUIData;
+  availableStates: AvailableStatesUIData;
   selectedStates: string[];
   statePopulation: StatePopulationData;
 }) => {

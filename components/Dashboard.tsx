@@ -2,6 +2,7 @@ import ConfirmedCasesLinear from '../components/ConfirmedCasesLinear';
 import { ApplicationState } from '../redux/store';
 import StateSelector from './StateSelector';
 import ConfirmedCasesPerPop from './ConfirmedCasesPerPop';
+import React from 'react';
 
 export default function Dashboard(
   props: ApplicationState & {

@@ -16,7 +16,7 @@ export const extractCasesFromTimeline = (
     if (!records[stateName]) {
       records[stateName] = {};
     }
-    for (let key in stateData) {
+    for (const key in stateData) {
       if (key === 'State') {
         continue;
       }

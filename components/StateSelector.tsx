@@ -1,11 +1,12 @@
-import { availableStatesUIData } from '../redux/store';
+import { AvailableStatesUIData } from '../redux/store';
+import React from 'react';
 
 export default function StateSelector({
   availableStates,
   selectedStates,
   changeSelectedStates,
 }: {
-  availableStates: availableStatesUIData;
+  availableStates: AvailableStatesUIData;
   selectedStates: string[];
   changeSelectedStates: (stateName: string, added: boolean) => void;
 }) {

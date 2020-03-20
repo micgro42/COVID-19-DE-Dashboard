@@ -1,10 +1,10 @@
 import { Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
 import React from 'react';
-import { availableStatesUIData, CaseRecordsByState } from '../redux/store';
+import { AvailableStatesUIData, CaseRecordsByState } from '../redux/store';
 
 const ConfirmedCasesLinear = (props: {
   confirmedData: CaseRecordsByState;
-  availableStates: availableStatesUIData;
+  availableStates: AvailableStatesUIData;
   selectedStates: string[];
 }) => {
   const massagedData: any = {};
