@@ -1523,9 +1523,9 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-COVID-19-DE@micgro42/COVID-19-DE#e3750c130dda06219839d47e1df8d1111aad8fdc:
+COVID-19-DE@micgro42/COVID-19-DE#26eaa948342eb3d7556ad5b814c1c6c1e13326f8:
   version "1.0.0"
-  resolved "https://codeload.github.com/micgro42/COVID-19-DE/tar.gz/e3750c130dda06219839d47e1df8d1111aad8fdc"
+  resolved "https://codeload.github.com/micgro42/COVID-19-DE/tar.gz/26eaa948342eb3d7556ad5b814c1c6c1e13326f8"
 
 abab@^2.0.0:
   version "2.0.3"

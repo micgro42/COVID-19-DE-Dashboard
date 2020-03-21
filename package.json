@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.2.5",
-    "COVID-19-DE": "micgro42/COVID-19-DE#e3750c130dda06219839d47e1df8d1111aad8fdc",
+    "COVID-19-DE": "micgro42/COVID-19-DE#26eaa948342eb3d7556ad5b814c1c6c1e13326f8",
     "csv-loader": "^3.0.2",
     "next": "^9.3.1",
     "papaparse": "^5.1.1",
