@@ -50,8 +50,5 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "*.{js,css,ts,tsx,md}": "prettier --write"
   }
 }
