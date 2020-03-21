@@ -3,6 +3,18 @@ import { ApplicationState } from '../redux/store';
 import StateSelector from './StateSelector';
 import ConfirmedCasesPerPop from './ConfirmedCasesPerPop';
 import React from 'react';
+import ConfirmedCasesLinear2 from './ConfirmedCasesLinear2';
+import { defaults } from 'react-chartjs-2';
+
+defaults.global.tooltips = {
+  ...defaults.global.tooltips,
+  enabled: true,
+  mode: 'index',
+  position: 'average',
+  intersect: false,
+  titleFontSize: 18,
+  bodyFontSize: 18,
+};
 
 export default function Dashboard(
   props: ApplicationState & {
@@ -11,11 +23,27 @@ export default function Dashboard(
 ) {
   return (
     <div>
-      <ConfirmedCasesLinear
-        confirmedData={props.confirmed}
-        availableStates={props.availableStates}
-        selectedStates={props.selectedStates}
-      />
+      <div
+        style={{
+          width: '45vw',
+          height: '600px',
+          float: 'right',
+          margin: '0 4em 0 0',
+        }}
+      >
+        <ConfirmedCasesLinear2
+          confirmedData={props.confirmed}
+          availableStates={props.availableStates}
+          selectedStates={props.selectedStates}
+        />
+      </div>
+      <div style={{ display: 'inline-block' }}>
+        <ConfirmedCasesLinear
+          confirmedData={props.confirmed}
+          availableStates={props.availableStates}
+          selectedStates={props.selectedStates}
+        />
+      </div>
       <ConfirmedCasesPerPop
         confirmedData={props.confirmed}
         availableStates={props.availableStates}

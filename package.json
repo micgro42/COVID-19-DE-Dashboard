@@ -23,6 +23,8 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "recharts": "^1.8.5",
+    "react-chartjs-2": "^2.9.0",
+    "chart.js": "^2.9.3",
     "redux": "^4.0.5"
   },
   "devDependencies": {
@@ -50,6 +52,6 @@
     }
   },
   "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
+    "*.{js,css,ts,tsx,md}": "prettier --write"
   }
 }
